@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title> CS253 Wiki </title>
+    <style>
+
+    body{
+      width: 800px;
+      margin: 0 auto;
+      font-family: sans-serif;
+    }
+
+    a{
+      color:rgba(167,173,186,1);
+      text-decoration: none;
+    }
+
+    a:hover{
+      color: orange;
+    }
+
+    h4{
+      text-align: right;
+    }
+
+    textarea{
+      width: 800px;
+      height: 600px;
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    .content{
+      margin-top: 50px;
+    }
+
+    </style>
+  </head>
+      
+  <body>
+    <h4>
+      {% if user %} 
+      <a href="/_edit{{name}}{{vURL}}">edit |</a>
+      <a href ="/_history{{name}}" style="margin-right: 40px"> history </a>
+      <a href="/_logout{{name}}"> {{user.username}} (logout)  </a>
+      {% else %}
+      <a href="/_login{{name}}"> login |</a>
+      <a href="/_signup{{name}}"> signup </a>
+      {% endif %}
+    </h4>
+
+    <div class="content">
+      {{content}}
+    </div>
+
+
+  </body>
+
+</html>
+

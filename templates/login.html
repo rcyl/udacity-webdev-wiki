@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title> Login </title>
+    <style>
+
+      body{
+         font-family: sans-serif
+      }
+
+      .username{
+        font-size: 17px;
+      }
+
+      .password{
+        font-size: 17px;
+      }
+
+      input[type=password]{
+        margin-left: 4px;
+        margin-top: 5px;
+      }
+
+      .error{
+        color: red;
+      }
+
+
+    </style>
+
+
+  </head>
+
+  <body>
+    <h1> Login </h1> 
+
+  <form method="post">
+    <div class="username"> 
+      <label>Username </label> 
+      <input type="text" name="username" value="">
+    </div>  
+    <div class="password">
+    <label> Password</label>  
+      <input type="password" name="password" value ="">
+    </div>
+    <br>
+    <div class="error">{{error}} </div>
+    <br>
+    <input type="submit">
+  </form>
+
+  </body>
+
+
+</html>

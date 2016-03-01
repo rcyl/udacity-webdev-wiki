@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title> CS253 Wiki </title>
+    <style>
+
+    body{
+      width: 800px;
+      margin: 0 auto;
+      font-family: sans-serif;
+    }
+
+    a{
+      color:rgba(167,173,186,1);
+      text-decoration: none;
+    }
+
+    a:hover{
+      color: orange;
+    }
+
+    h4{
+      text-align: right;
+    }
+
+    table{
+      margin-top: 50px;
+    }
+
+    tr{
+       height: 33px;
+       font-family:  sans-serif;
+       font-size: 17px;
+    }
+
+    td{
+       padding-left: 10px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #F3EFE0;
+    
+    }
+
+
+    </style>
+
+
+  </head>
+
+  <body>
+    <h4> 
+      <a href="/_edit{{name}}">edit |</a>
+      <a href ="/_history{{name}}" style="margin-right: 40px"> history </a>
+      <a href="/_logout{{name}}"> {{user.username}} (logout) </a>
+    </h4>
+
+    <table>
+      {% for p in pages%}
+      <tr class="row">
+        <td style="width:250px"> {{ p.created.strftime("%a %b %d %H:%M:%S %Y")}} </td>
+        <td style="width:450px"> 
+          {{p.content[0:50]}}
+        </td>
+        <td style="width:100px" > 
+          <a href="{{name}}?v={{p.key().id()}}"> view |</a> 
+          <a href="/_edit{{name}}?v={{p.key().id()}}"> edit </a>
+        </td>
+      </tr>
+      {% endfor %}
+
+     
+    </table>
+
+
+  </body>
+
+</html>
+
