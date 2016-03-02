@@ -18,7 +18,6 @@ USER_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")
 PASS_RE = re.compile(r"^.{3,20}$")
 EMAIL_RE = re.compile(r"^[\S]+@[\S]+\.[\S]+$")
 PAGE_RE = r'(/(?:[a-zA-Z0-9_-]+/?)*)'
-LOGIN_RE = r'(/(?:[a-zA-Z0-9_-]/?)*)'
 
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
@@ -104,18 +103,5 @@ def set_mem(key, val):
 def gem_mem(key):
     return memcache.get(key)
 
-def query_db(name, view): #query single entry in database
-    if view:
-      key = db.Key.from_path('Pages', int(view), parent = page_key(name)) 
-      p = db.get(key)
-      return p
-
-def get_pages(name, view): #queries both mememcache and database for single entry
-    viewkey = name + view 
-    pages = gem_mem(viewkey)
-    if pages is None:
-       pages = query_db(name, view)
-       set_mem(viewkey, pages)
-    return pages
 
 
